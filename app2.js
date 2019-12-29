@@ -31,3 +31,8 @@ app.get("/api/user", (req, res) => {
 	res.json(users);
 });
 
+app.get("/blog/:category/:id", (req, res) => {
+	let category = req.params.category;
+	let id = req.params.id;
+	res.send(`category: ${category}, id: ${id}`);
+});
