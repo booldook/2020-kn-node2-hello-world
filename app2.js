@@ -2,8 +2,11 @@ const express = require('express');
 const app = express();
 const host = '127.0.0.1';
 const port = 3000;
+const bodyParser = require("body-parser"); // Middleware
 
 // 지정한 public 폴더를 client가 접근 가능한 정적 폴더로 만든다.
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 app.use("/", express.static("./public"));
 
 
@@ -44,5 +47,11 @@ app.get("/blog/:category/:id", (req, res) => {
 
 app.get("/home2", (req, res) => {
 	//res.sendFile("/index.html");
+});
+
+app.post("/join", (req, res) => {
+	let userid = req.body.userid;
+	let userpw = req.body.userpw;
+	res.send(`userid: ${userid} / userpw: ${userpw}`);
 })
 
