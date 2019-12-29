@@ -17,6 +17,17 @@ app.get("/hello", (req, res) => {
 app.get("/home", (req, res) => {
 	let name = req.query.name;
 	res.send(`<h1>${name}님 반갑습니다.</h1>`);
-})
+});
 
-//작업중
+app.get("/api/user", (req, res) => {
+	let users = {
+		user: [
+			{id: 1, name: "홍길동", age: 25},
+			{id: 2, name: "홍길만", age: 32},
+			{id: 3, name: "홍길룡", age: 28},
+		],
+		cnt: 3
+	};
+	res.json(users);
+});
+
