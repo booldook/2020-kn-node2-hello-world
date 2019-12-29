@@ -18,3 +18,5 @@ app.get("/home", (req, res) => {
 	let name = req.query.name;
 	res.send(`<h1>${name}님 반갑습니다.</h1>`);
 })
+
+//작업중
