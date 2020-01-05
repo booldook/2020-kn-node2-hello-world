@@ -2,14 +2,14 @@ const express = require('express');
 const app = express();
 const host = '127.0.0.1';
 const port = 3000;
-const bodyParser = require("body-parser"); // Middleware
+// const bodyParser = require("body-parser"); // Middleware
 
 // 지정한 public 폴더를 client가 접근 가능한 정적 폴더로 만든다.
 app.locals.pretty = true;
 app.set('view engine', 'pug');
 app.set('views', './views');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.json());
+app.use(espress.urlencoded({extended: false}));
 app.use("/", express.static("./public"));
 
 app.listen(port, () => {
